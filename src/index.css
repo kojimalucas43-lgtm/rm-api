@@ -4,3 +4,25 @@
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+body{
+  background-image: url("../public/bg.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+
+}
+
+main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
