@@ -1,7 +1,7 @@
 import s from './App.module.css'
 import { api } from './constants/api'
 import { useState, useEffect } from 'react'
-
+import logo from '/rm.png'
 
 function App() {
   const [data,setData] = useState([])
@@ -9,9 +9,9 @@ function App() {
   useEffect(() => {
     api.get(`/character`).then((response) => {
       setData(response.data.results)
-    }).catch(error) => {
-      console.error()
-    } 
+    }).catch((error) => {
+      console.error("Deu ruim pô", error)
+    })
   }, [])
   
   return (
@@ -25,8 +25,11 @@ function App() {
         {data.map((item, index) => {
           return(
             <div>
-            <h2>{item.name}</h2>
-            <img src={item.image} alt='' />
+            <img src={item.image} alt={item.name} />
+            <h2>Name: {item.name}</h2>
+            <p>Species: {item.species}</p>
+            {item.status === "Dead" ? "Status: 💀": item.status === "Alive" ? "Status: 😊" : <p>Status: {item.status}</p>} 
+            <p>Origin: {item.origin.name}</p>
             </div>
           )
 
