@@ -2,3 +2,7 @@
     width: 500px;
     height: auto;
 }
+
+.card{
+    border-radius: 12px;
+}
